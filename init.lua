@@ -1,0 +1,5 @@
+require("jobjorn.plugins")
+require("jobjorn.core.options")
+require("jobjorn.core.keymaps")
+require("jobjorn.core.colorscheme")
+require("jobjorn.plugins.nvim-tree")
