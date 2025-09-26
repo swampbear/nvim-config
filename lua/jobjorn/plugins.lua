@@ -1,4 +1,4 @@
--- bootstrap lazy.nvim
+-- bootstrap lazy.nvim 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -19,12 +19,37 @@ require("lazy").setup({
   { "nvim-tree/nvim-web-devicons" },
   { "nvim-tree/nvim-web-devicons"},
   {
+  {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"}
+},
+  {
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
             dependencies = { 'nvim-lua/plenary.nvim' }
         },
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+    
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    dependencies = {
+      -- LSP Support
+      { "neovim/nvim-lspconfig" },
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
+
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-nvim-lua" },
+
+      -- Snippets
+      { "L3MON4D3/LuaSnip" },
+      { "rafamadriz/friendly-snippets" },
+    },
   },
 })
 
