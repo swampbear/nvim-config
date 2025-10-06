@@ -29,7 +29,6 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-    
   {
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {
@@ -52,6 +51,13 @@ require("lazy").setup({
       dependencies = { 'nvim-tree/nvim-web-devicons' }
       },
 
+      -- Dashboard
+      {
+        'goolord/alpha-nvim',
+       config = function ()
+        require'alpha'.setup(require'alpha.themes.theta'.config)
+        end
+      },
       -- Snippets
       { "L3MON4D3/LuaSnip" },
       { "rafamadriz/friendly-snippets" },
