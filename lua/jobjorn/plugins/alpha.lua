@@ -30,7 +30,7 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-	return "Don't Stop Until You are Proud..."
+	return 'Keep it simple stupid'
 end
 
 dashboard.section.footer.val = footer()
