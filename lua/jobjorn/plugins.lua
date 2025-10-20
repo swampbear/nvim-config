@@ -17,7 +17,6 @@ require('lazy').setup {
 	{ 'nvim-lua/plenary.nvim' },
 	{ 'bluz71/vim-nightfly-guicolors' },
 	{ 'nvim-tree/nvim-web-devicons' },
-	{ 'nvim-tree/nvim-web-devicons' },
 	{
 		{ 'nvim-treesitter/nvim-treesitter', branch = 'master', lazy = false, build = ':TSUpdate' },
 	},
@@ -33,7 +32,17 @@ require('lazy').setup {
 	{ 'williamboman/mason.nvim', dependencies = {
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
 	} },
-
+	-- Add undotree here
+	{
+		'mbbill/undotree',
+		cmd = 'UndotreeToggle',
+		keys = {
+			{ '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Undotree' },
+		},
+		config = function()
+			require 'core.undotree'
+		end,
+	},
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		dependencies = {
@@ -41,7 +50,6 @@ require('lazy').setup {
 			{ 'neovim/nvim-lspconfig' },
 			{ 'williamboman/mason.nvim' },
 			{ 'williamboman/mason-lspconfig.nvim' },
-
 			-- Autocompletion
 			{ 'hrsh7th/nvim-cmp' },
 			{ 'hrsh7th/cmp-buffer' },
@@ -49,16 +57,13 @@ require('lazy').setup {
 			{ 'saadparwaiz1/cmp_luasnip' },
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'hrsh7th/cmp-nvim-lua' },
-
 			-- Git
 			{ 'kdheepak/lazygit.nvim' },
-
 			-- Status line
 			{
 				'nvim-lualine/lualine.nvim',
 				dependencies = { 'nvim-tree/nvim-web-devicons' },
 			},
-
 			-- Dashboard
 			{
 				'goolord/alpha-nvim',
