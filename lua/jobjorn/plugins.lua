@@ -36,11 +36,15 @@ require('lazy').setup {
 	{
 		'mbbill/undotree',
 		cmd = 'UndotreeToggle',
-		keys = {
-			{ '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Undotree' },
-		},
+	},
+	-- lazydocker.nvim
+	{
+		'mgierada/lazydocker.nvim',
+		dependencies = { 'akinsho/toggleterm.nvim' },
 		config = function()
-			require 'core.undotree'
+			require('lazydocker').setup {
+				border = 'single', -- valid options are "single" | "double" | "shadow" | "curved"
+			}
 		end,
 	},
 	{

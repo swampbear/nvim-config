@@ -15,8 +15,12 @@ keymap.set('n', '<leader>-', '<C-x>')
 -- lazygit
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'LazyGit' })
 
+-- lazydocker
+vim.keymap.set('n', '<leader>ld', '<cmd>Lazydocker<CR>', { desc = 'LazyGit' })
 --nvim-tree
 keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
+--undotree
+keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
 
 -- telescope
 local builtin = require 'telescope.builtin'
