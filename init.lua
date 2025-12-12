@@ -1,14 +1,10 @@
-require 'jobjorn.plugins'
+-- Set leader key before loading plugins
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Load lazy.nvim and all plugins
+require 'jobjorn.lazy'
+
+-- Load core configuration
 require 'jobjorn.core.options'
 require 'jobjorn.core.keymaps'
-require 'jobjorn.core.colorscheme'
-require 'jobjorn.plugins.nvim-tree'
-require 'jobjorn.core.tree-sitter'
-require 'jobjorn.core.lsp'
-require 'jobjorn.plugins.lualine'
-require 'jobjorn.plugins.alpha'
-require 'jobjorn.core.mason'
-require 'jobjorn.plugins.formatting'
-require 'jobjorn.core.lazygit'
-require 'jobjorn.core.undotree'
-require 'jobjorn.plugins.lazydocker'

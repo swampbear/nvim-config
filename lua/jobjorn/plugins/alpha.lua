@@ -1,15 +1,15 @@
--- alpha-config.lua
+return {
+	'goolord/alpha-nvim',
+	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	config = function()
+		local alpha = require 'alpha'
 
-local status_ok, alpha = pcall(require, 'alpha')
-if not status_ok then
-	return
-end
-vim.api.nvim_set_hl(0, 'AlphaHeader', {
-	fg = '#A597BA', -- This is a nice blue color (hex code)
-	bold = true, -- Make it bold for extra impact
-})
+		vim.api.nvim_set_hl(0, 'AlphaHeader', {
+			fg = '#A597BA', -- This is a nice blue color (hex code)
+			bold = true, -- Make it bold for extra impact
+		})
 
-local dashboard = require 'alpha.themes.dashboard'
+		local dashboard = require 'alpha.themes.dashboard'
 
 dashboard.section.header.val = {
 	[[                                                                    ]],
@@ -49,5 +49,7 @@ dashboard.section.footer.opts.hl = 'Type'
 dashboard.section.header.opts.hl = 'AlphaHeader'
 dashboard.section.buttons.opts.hl = 'Keyword'
 
-dashboard.opts.opts.noautocmd = true
-alpha.setup(dashboard.opts)
+		dashboard.opts.opts.noautocmd = true
+		alpha.setup(dashboard.opts)
+	end,
+}
