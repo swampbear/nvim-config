@@ -51,7 +51,7 @@ return {
 		},
 		config = function()
 			require('mason-lspconfig').setup {
-				ensure_installed = { 'lua_ls', 'rust_analyzer', 'eslint', 'pyright', 'gopls' },
+				ensure_installed = { 'lua_ls', 'rust_analyzer', 'ts_ls', 'eslint', 'html', 'pyright', 'gopls' },
 				handlers = {
 					function(server_name)
 						require('lspconfig')[server_name].setup {}
@@ -89,8 +89,23 @@ return {
 		},
 		config = function()
 			local cmp = require 'cmp'
+			local luasnip = require 'luasnip'
+
+			-- Load friendly-snippets (includes HTML, JS, JSX, React, etc.)
+			require('luasnip.loaders.from_vscode').lazy_load()
+
+			-- Enable JSX/TSX snippets in javascript/typescript files
+			luasnip.filetype_extend('javascript', { 'javascriptreact', 'html' })
+			luasnip.filetype_extend('typescript', { 'typescriptreact', 'html' })
+			luasnip.filetype_extend('javascriptreact', { 'javascript', 'html' })
+			luasnip.filetype_extend('typescriptreact', { 'typescript', 'html' })
 
 			cmp.setup {
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
 				mapping = cmp.mapping.preset.insert {
 					['<C-n>'] = cmp.mapping.select_next_item(),
 					['<C-p>'] = cmp.mapping.select_prev_item(),
