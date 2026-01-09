@@ -22,17 +22,20 @@ opt.cursorline = true
 
 -- appearence
 opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
+opt.background = 'dark'
+opt.signcolumn = 'yes'
 
 -- backspace
-opt.backspace = "indent,eol,start"
+opt.backspace = 'indent,eol,start'
 
 -- clipboard
-opt.clipboard:append("unnamedplus")
+opt.clipboard:append 'unnamedplus'
 
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
 
-opt.iskeyword:append("-")
+opt.iskeyword:append '-'
+
+-- blue order for completion windows
+vim.api.nvim_set_hl(0, 'BlueBorder', { fg = '#8aadf4' })
