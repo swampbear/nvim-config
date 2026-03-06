@@ -8,6 +8,8 @@ return {
 				-- Conform will run multiple formatters sequentially
 				python = { 'ruff' },
 				go = { 'goimports', 'gofmt' },
+				c = { 'clang-format' },
+				cpp = { 'clang-format' },
 				javascript = { 'prettierd', 'prettier', stop_after_first = true },
 				javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
 				typescript = { 'prettierd', 'prettier', stop_after_first = true },

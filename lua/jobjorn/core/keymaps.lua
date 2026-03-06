@@ -14,18 +14,18 @@ keymap.set('n', '<leader>-', '<C-x>')
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'LazyGit' })
 
 -- lazydocker
-vim.keymap.set('n', '<leader>ld', '<cmd>Lazydocker<CR>', { desc = 'LazyGit' })
+vim.keymap.set('n', '<leader>ld', '<cmd>Lazydocker<CR>', { desc = 'LazyDocker' })
 --nvim-tree
 keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 --undotree
 keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
 
 -- telescope
-local builtin = require 'telescope.builtin'
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffers() end, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>ft', function() require('telescope.builtin').colorscheme({ enable_preview = true }) end, { desc = 'Switch colorscheme' })
 
 -- Recommended/example keymaps.
 vim.keymap.set({ 'n', 'x' }, '<leader>ai', function()
