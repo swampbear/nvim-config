@@ -8,7 +8,7 @@ return {
             require('catppuccin').setup {
                 flavour = 'macchiato',
             }
-            -- Set default colorscheme (change to 'aetheria' if you prefer)
+            -- Set default colorscheme (change to name to enable different themes)
             vim.cmd.colorscheme 'catppuccin'
         end,
     },
