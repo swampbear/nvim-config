@@ -20,12 +20,26 @@ keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 --undotree
 keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
 
+-- go to definition
+vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+
 -- telescope
-vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffers() end, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { desc = 'Telescope help tags' })
-vim.keymap.set('n', '<leader>ft', function() require('telescope.builtin').colorscheme({ enable_preview = true }) end, { desc = 'Switch colorscheme' })
+vim.keymap.set('n', '<leader>ff', function()
+	require('telescope.builtin').find_files()
+end, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', function()
+	require('telescope.builtin').live_grep()
+end, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', function()
+	require('telescope.builtin').buffers()
+end, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', function()
+	require('telescope.builtin').help_tags()
+end, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>ft', function()
+	require('telescope.builtin').colorscheme { enable_preview = true }
+end, { desc = 'Switch colorscheme' })
 
 -- Recommended/example keymaps.
 vim.keymap.set({ 'n', 'x' }, '<leader>ai', function()
