@@ -50,6 +50,8 @@ return {
 			"williamboman/mason.nvim",
 		},
 		config = function()
+			local lspconfig = require("lspconfig")
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
@@ -65,7 +67,23 @@ return {
 				},
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({})
+						lspconfig[server_name].setup({})
+					end,
+					["pyright"] = function()
+						lspconfig.pyright.setup({
+							before_init = function(_, config)
+								if not config.root_dir then
+									return
+								end
+
+								local venv_python = config.root_dir .. "/.venv/bin/python"
+								if vim.fn.executable(venv_python) == 1 then
+									config.settings = config.settings or {}
+									config.settings.python = config.settings.python or {}
+									config.settings.python.pythonPath = venv_python
+								end
+							end,
+						})
 					end,
 				},
 			})
